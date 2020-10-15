@@ -2,30 +2,32 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>dy-js</title>
+    <title>w-js</title>
 
 </head>
 
 
 <script type="text/javascript" src="Network.js"></script>
-<script type="text/javascript" src="services/service.js"></script>
+<script type="text/javascript" src="base/service.js"></script>
+<script type="text/javascript" src="base/route.js"></script>
 
-<script type="text/javascript" src="base/Button.js"></script>
-<script type="text/javascript" src="base/Label.js"></script>
-<script type="text/javascript" src="base/Text.js"></script>
-<script type="text/javascript" src="base/View.js"></script>
+<script type="text/javascript" src="styles/Button.js"></script>
+<script type="text/javascript" src="styles/Label.js"></script>
+<script type="text/javascript" src="styles/Text.js"></script>
+<script type="text/javascript" src="styles/View.js"></script>
+
+<script type="text/javascript" src="services/test.js"></script>
+
 
 <script language='javascript' src='components/Book.js'></script>
 
 <body>
-    <div id="div1" style="width: 200px;height: 100px"> </div>
-
-
+   <div id="div111" style="width: 200px;height: 200px;background: red"></div>
 
     <script>
     
-
-        var t = new service("div1");
+        var t = new test();
+        t.divId = "div111"
         t.request();
 
 
