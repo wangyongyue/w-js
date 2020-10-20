@@ -3,6 +3,8 @@ function service(){
 
     this.arr = [];
     this.divId = "";
+    this.content = document.createElement("div");
+
 
 //继承需要重写
     this.url = function(){
@@ -30,10 +32,10 @@ function service(){
 //继承不需要重写
 
   this.reload = function(){
-    console.log(this.divId);
     console.log(this.arr);
     var element = document.getElementById(this.divId);
-    element.innerHTML  = "";
+    element.innerHTML = "";
+    element.appendChild(this.content)
 
       for(b in this.arr){
          var div =  function(i,that){
@@ -41,7 +43,7 @@ function service(){
             that.clickIndex(i);
           });
          }(b,this);
-        element.appendChild(div);
+        this.content.appendChild(div);
         var m = this.arr[b];
         m.reload();
       }
@@ -53,10 +55,25 @@ function service(){
     m.reload();
 
   }
+  this.disAppear = function () {
+
+        var element = document.getElementById(this.divId);
+        element.innerHTML  = "";
+        this.content.innerHTML  = "";
+
+  }
+  this.appear = function () {
+      if (this.arr.length > 0) {
+          var element = document.getElementById(this.divId);
+          element.innerHTML  = "";
+          element.appendChild(this.content)
+          return
+      }
+  }
 
   this.request = function(){
       var that = this;
-      if (that.requestType() === "None") {
+      if (that.requestType() == "None") {
             that.success(null);
             return
       }

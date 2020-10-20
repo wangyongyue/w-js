@@ -49,6 +49,7 @@ function test1()
 {
     this.clickIndex = function (index) {
         console.log(index);
+        pop()
     }
     this.success = function (response) {
         this.arr = [new Book({name: "book"}),
